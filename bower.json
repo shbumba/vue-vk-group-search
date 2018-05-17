@@ -1,0 +1,19 @@
+{
+  "name": "vue-vk-data-group-grabber",
+  "description": "",
+  "main": "webpack.config.js",
+  "authors": [
+    "shimba"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}

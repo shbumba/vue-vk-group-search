@@ -1,0 +1,47 @@
+{
+    "name": "vue-vk-data-group-grabber",
+    "version": "1.0.0",
+    "main": "webpack.config.js",
+    "author": "Vitaly Fomin <vitaly63fomin@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "server": "webpack-dev-server --env dev",
+        "watch": "webpack --config webpack.config.js --watch --env dev",
+        "build:dev": "webpack --config webpack.config.js --env dev",
+        "build:prod": "webpack --config webpack.config.js --env prod"
+    },
+    "dependencies": {
+        "normalize.css": "^7.0.0",
+        "vue": "^2.5.3"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-preset-env": "^1.6.1",
+        "css-loader": "^0.28.7",
+        "cssnano": "^3.10.0",
+        "extract-loader": "^1.0.1",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "file-loader": "^1.1.5",
+        "html-loader": "^0.5.1",
+        "html-webpack-plugin": "^2.30.1",
+        "postcss": "^6.0.14",
+        "postcss-assets": "^5.0.0",
+        "postcss-cssnext": "^3.0.2",
+        "postcss-import": "^11.0.0",
+        "postcss-loader": "^2.0.8",
+        "postcss-math": "^0.0.8",
+        "postcss-short": "^4.1.0",
+        "precss": "^2.0.0",
+        "style-loader": "^0.19.0",
+        "twig": "^1.10.5",
+        "twig-loader": "^0.3.0",
+        "uglifyjs-webpack-plugin": "^1.0.1",
+        "vue-loader": "^13.4.0",
+        "vue-template-compiler": "^2.5.3",
+        "webpack": "^3.8.1",
+        "webpack-dev-server": "^2.9.4",
+        "webpack-merge": "^4.1.1"
+    }
+}

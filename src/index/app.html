@@ -1,0 +1,87 @@
+<div id="app" class="main">
+    <div class="head">
+        <div class="head__col head__col--left"><h1>{{ message }}</h1></div>
+        <div class="head__col head__col--right">
+            <div v-if="vkData.isLogin && userData" class="user-badge">
+                <div class="user-badge__name">
+                    {{ userData.first_name }} {{ userData.last_name }}
+                </div>
+                <div class="user-badge__btn">
+                    <button v-on:click="vkLogout">Logout</button>
+                </div>
+            </div>
+            <button v-else-if="!vkData.isLogin"
+                    v-on:click="vkLogin">Login</button>
+        </div>
+    </div>
+
+    <div v-if="vkData.isLogin">
+        <div v-if="userData">
+            <transition name="fade">
+                <div v-if="viewMode == 'goupList'">
+                    <ul>
+                        <li v-for="group in groupList"
+                            v-on:click="viewGroup(group)">
+                            <div>{{ group.name }}</div>
+                            <img v-bind:src="group.photo"
+                                 v-bind:alt="group.name"/>
+                        </li>
+                    </ul>
+                </div>
+            </transition>
+
+            <transition name="fade">
+                <div v-if="viewMode == 'goupMode'">
+                    <button v-on:click="changeMode('goupList')">Go Back</button>
+                    <div> {{ groupData.name }}</div>
+                    <input type="text"
+                           v-model.trim="groupData.search"
+                           v-on:keyup="groupSearch"/>
+                    <select v-model="searchMode"
+                            v-on:change="changeSearchMode"/>
+                    <option v-for="(item, index) in searchModeList"
+                            :value="index"
+                            :selected="index == searchMode"> {{ item }}</option>
+                    </select>
+
+                    <div v-if="searchResult">
+
+                        <div v-if="searchMode == 'audio'">
+                            audio
+                            <div v-for="audios in searchResult">
+                                <div v-for="song in audios">
+                                    {{ song.artist }} - {{ song.title }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-else-if="searchMode == 'video'">
+                            video
+                            <div v-for="video in searchResult">
+
+                            </div>
+                        </div>
+
+                        <div v-else-if="searchMode == 'text'">
+                            text
+                            {{searchResult}}
+                            <div v-for="text in searchResult">
+                                {{ text }}
+                            </div>
+                        </div>
+
+                        <div v-if="searchMode == 'info'">
+                            info
+                            <div v-for="info in searchResult">
+                                {{ info }}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </transition>
+
+        </div>
+    </div>
+</div>
